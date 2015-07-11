@@ -1,0 +1,442 @@
+
+
+
+// Designad av Vegosvar - Enkla svar på vegofrågor
+
+
+
+// Variables
+
+@brand-primary: 	#1fccba;
+@brand-secondary:	#E56096;
+@xs: 				768px;
+
+
+
+// Global
+
+strong {
+	font-weight: 700;
+}
+
+.transition (@prop: all, @time: 1s, @ease: linear) {
+	-webkit-transition: @prop @time @ease;
+	-moz-transition: @prop @time @ease;
+	-o-transition: @prop @time @ease;
+	-ms-transition: @prop @time @ease;
+	transition: @prop @time @ease;
+}
+@keyframes fadein {
+	0% {opacity: 0; background: lighten(#1fccba, 30%); transform: scale(0.9); }
+	50% {opacity: 0;}
+	100% {opacity: 1; background: #1fccba; transform: scale(1); }
+}
+@keyframes reloading {
+	10% {transform: rotate(0);}
+	100% {transform: rotate(360deg);}
+}
+@keyframes vegopower {
+	0% {transform: scale(1);}
+	50% {transform: scale(0.9);}
+	100% {transform: scale(1);}
+}
+
+body {
+	background: #1fccba;
+	font-family: 'Open Sans', Arial;
+	-webkit-font-smoothing: antialiased;
+	animation: fadein 1s ease-in-out;
+}
+
+a {
+	color: #000;
+	&:hover {
+		color: @brand-primary;
+		text-decoration: none;
+	}
+}
+
+// Design
+
+.page-wrapper{
+	width: 100%;
+	height: 100%;
+	&.blur{
+		filter: blur(5px);
+	}
+}
+
+.modal-wrapper{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0; left: 0;
+	background: rgba(31,204,186,0.75);
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.25s ease-in-out;
+
+	.bg-close {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+	}
+
+	.modal{
+		width: 600px;
+		height: 400px;
+		display:block;
+		margin: 50% 0 0 -300px;
+		position: relative;
+		top: 50%; left: 50%;
+		background: #fff;
+		opacity: 0;
+		border-radius: 5px;
+		transition: all 0.5s ease-in-out;
+  		@media (max-width: @xs) { 
+  			width: 90%;
+  			height: auto;
+  			left: 0;
+  			top: 0;
+  			margin: -50% 5% 5% 5%;
+  		}
+	}
+	&.open{
+		opacity: 1;
+		visibility: visible;
+		.modal{
+			margin-top:-200px;
+			opacity:1;
+  			@media (max-width: @xs) { 
+  				margin: 5% 5% 5% 5%;
+  			}
+		}
+	}
+
+	.head {
+		overflow: hidden;
+		padding: 20px;
+		.title {
+			margin: 0;
+			float: left;
+  			@media (max-width: @xs) { 
+  				font-size: 23px;
+  			}
+		}
+		.btn-close{
+			position: relative;
+			width: 32px;
+			height: 32px;
+			display: block;
+			float: right;
+		}
+
+		.btn-close::before, .btn-close::after{
+			content: '';
+			width: 32px;
+			height: 6px;
+			display: block;
+			background: @brand-primary;
+		}
+
+		.btn-close::before{
+			margin-top: 12px;
+			transform: rotate(45deg);
+		}
+
+		.btn-close::after{
+			margin-top:-6px;
+			transform: rotate(-45deg);
+		}
+	}
+	.content {
+		padding: 0 20px 20px 20px;
+		h3 {
+			margin-top: 25px;
+			margin-bottom: 15px;
+  			@media (max-width: @xs) { 
+  				font-size: 18px;
+  			}
+		}
+		.input-group {
+			margin-bottom: 20px;
+			.input-group-addon {
+				border: 2px solid #eee;
+				background: #eee;
+			}
+			.form-control {
+				padding: 10px 15px;
+				height: auto;
+				border: 2px solid #eee;
+				box-shadow: none;
+			}
+		}
+	}
+}
+
+
+.btn {
+	&.btn-primary {
+		background: @brand-primary;
+		border: none;
+		text-shadow: none;
+		box-shadow: none;
+		.transition(background, 0.1s, ease-in);
+  		@media (max-width: @xs) { 
+  			width: 100%;
+  		}
+		&:hover {
+			background: darken(@brand-primary, 5%)
+		}
+		&:active {
+			background: darken(@brand-primary, 10%)
+		}
+		&:active, &:focus {
+			outline: none;
+		}
+	}
+	&.btn-checkbox {
+		margin-bottom: 5px;
+		margin-right: 5px;
+		box-shadow: inset 0 0 0 1px #C1C1C1;
+		color: #999;
+		&:hover {
+			box-shadow: inset 0 0 0 1px @brand-secondary;
+			color: @brand-secondary;
+		}
+		&.active {
+			box-shadow: none;
+			background: @brand-secondary;
+			color: #fff;
+		}
+	}
+}
+
+
+
+.logo {
+	width: 500px;
+	max-width: 100%;
+	padding: 60px 40px 0 40px;
+	margin-bottom: -1px;
+  	@media (max-width: @xs) { 
+  		padding: 30px 50px 0px 50px;
+  	}
+}
+
+article {
+	background: #fff;
+	padding: 50px 15px;
+	margin-bottom: 60px;
+	box-shadow: 0 10px 0 0 rgba(0,0,0,0.05);
+	height: auto;
+	.transition(height, 0.1s, ease-in);
+  	@media (max-width: @xs) { 
+  		padding: 40px 15px;
+  	}
+	#tips {
+		opacity: 1;
+		.transition(all, 0.07s, ease-in);
+		&.loading {
+			opacity: 0;
+			transform: scale(0.9);
+		}
+		.count {
+			margin-bottom: 5px;
+			font-size: 15px;
+	  		@media (max-width: @xs) { 
+	  			font-size: 13px;
+	  			margin-bottom: 10px;
+	  		}
+			h1 {
+				font-size: inherit;
+				display: inline;
+			}
+		}
+  		.name {
+			display: block;
+			font-weight: 700;
+			font-size: 45px;
+			margin-top: 0;
+			line-height: 1.2;
+			color: #222;
+			margin-bottom: 15px;
+			.transition(font-size, 0.1s, ease-in);
+			&:hover, &:focus {
+				text-decoration: none;
+			}
+	  		@media (max-width: @xs) { 
+				font-size: 27px;
+				line-height: 1.2;
+	  		}
+  		}
+		.popular {
+			display: inline-block;
+			font-size: 15px;
+			color: #FE62A2;
+		}
+	}
+	.tooltip {
+		.tooltip-inner {
+			background: none;
+			color: #555;
+			font-size: 12px;
+			line-height: 1;
+		}
+		&.bottom .tooltip-arrow {
+			border: none;
+		}
+	}
+	.actions {
+		margin-top: 40px;
+		.btn {
+			width: 100%;
+			box-shadow: none;
+			padding: 15px;
+			font-size: 23px;
+			font-weight: 400;
+			border-radius: 5px;
+			background: none;
+			border: none;
+			.transition(all, 0.1s, ease-in);
+  			@media (max-width: @xs) { 
+  				font-size: 15px;
+				padding: 12px;
+  			}
+  			.glyphicon {
+  				font-size: 20px;
+  				margin-right: 5px;
+  				@media (max-width: @xs) { 
+	  				font-size: 14px;
+	  				margin-right: 3px;
+	  			}
+  			}
+			&.btn-primary {
+				color: #fff;
+				background: #222;
+				box-shadow: 0 0 0 5px #222;
+				&:hover {
+					box-shadow: 0 0 0 3px darken(#222, 3%);
+					background: darken(#222, 3%);
+		  			@media (max-width: @xs) { 
+						box-shadow: 0 0 0 5px #222;
+					}
+				}
+				&:active {
+					box-shadow: 0 0 0 0px #222;
+		  			@media (max-width: @xs) { 
+						box-shadow: 0 0 0 3px darken(#222, 3%);
+					}
+				}
+			}
+			&.btn-secondary {
+				color: #fff;
+				background: @brand-primary;
+				box-shadow: 0 0 0 5px @brand-primary;
+				&:hover {
+					box-shadow: 0 0 0 3px darken(@brand-primary, 3%);
+					background: darken(@brand-primary, 3%);
+		  			@media (max-width: @xs) { 
+						background: darken(@brand-primary, 3%);
+						box-shadow: 0 0 0 5px darken(@brand-primary, 3%);
+					}
+				}
+				&.loading {
+					box-shadow: 0 0 0 0px darken(@brand-primary, 5%);
+					background: darken(@brand-primary, 5%);
+		  			@media (max-width: @xs) { 
+						box-shadow: 0 0 0 3px darken(@brand-primary, 5%);
+					}
+					.glyphicon {
+						animation: reloading 0.4s infinite linear;
+					}
+				}
+			}
+		}
+	}
+}
+
+#thanksForTips {
+	background: #3AA640;
+	color: #fff;
+	padding: 5px 15px;
+	display: inline-block;
+	margin-top: -5px;
+	margin-bottom: 15px;
+	border-radius: 3px;
+	display: none;
+	opacity: 0;
+	.transition(opacity, 0.1s, ease-in);
+	&.show {
+		opacity: 1;
+		display: inline-block;
+	}
+}
+
+footer {
+	color: #fff;
+	margin-bottom: 60px;
+	#supertips {
+		display: inline-block;
+  		@media (max-width: @xs) { 
+  			display: none;
+  		}
+		div {
+			background: #fff;
+			color: @brand-primary;
+			padding: 5px 15px;
+			border-radius: 15px;
+			margin-bottom: 30px;
+			.glyphicon {
+				margin-right: 3px;
+			}
+			&.success {
+				display: none;
+				animation: vegopower 0.5s ease-in-out;
+				opacity: 1;
+				height: auto;
+				.transition(all, 0.3s, ease-in);
+				&.deactivate {
+					opacity: 0;
+					transform: scale(0);
+					padding: 0;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	.btn {
+		border: 1px solid #fff;
+		margin-right: 15px;
+		.transition(all, 0.1s, ease-in);
+		.glyphicon {
+			margin-right: 4px;
+		}
+		&:hover, &:active, &:focus {
+			background: #fff;
+			color: @brand-primary;
+			opacity: 1;
+			box-shadow: none;
+  			@media (max-width: @xs) { 
+  				color: #fff;
+  				background: none;
+  			}
+		}
+  		@media (max-width: @xs) { 
+  			font-size: 15px;
+  			display: block;
+  			padding: 15px;
+  			margin-bottom: 15px;
+  			margin-right: 0;
+  		}
+	}
+	a {
+		color: #fff;
+		&:hover {
+			color: #fff;
+			opacity: 0.6;
+			text-decoration: none;
+		}
+	}
+}
