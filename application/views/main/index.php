@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="sv"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="sv"> <![endif]-->
@@ -45,7 +48,7 @@
 	<div class="page-wrapper">
 		<content>
 			<div class="text-center">
-				<img src="assets/img/vegotips.svg" alt="Vegotips" class="logo">
+				<img src="/assets/img/vegotips.svg" alt="Vegotips" class="logo">
 			</div>
 			<article>
 				<div class="container">
@@ -134,7 +137,7 @@
 
 				<h3>Välj kategori</h3>
 				<div class="input-group" data-toggle="buttons">
-					<?php shuffle($categories);
+					<?php 
 					foreach($categories as $category) { ?>
 					<label class="btn btn-checkbox">
 						<input type="radio" autocomplete="off" name="category" value="<?php echo $category->categories_id; ?>" <?php if($category->categories_id == '1') { echo "checked"; } ?>> <?php echo $category->categories_name; ?>
