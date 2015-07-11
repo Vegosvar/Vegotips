@@ -72,20 +72,41 @@ $(window).load(function() {
 var counts = 0;
 function getMeal() {
 	toggleClass();
-	$.getJSON("/index.php/main/getmeal", function (data) {
-		$('#meal_count').html("#"+data.meal_count);
-		$('.actionTrigger').attr('data-id', data.meal_id);
-		$('#meal_name').html(data.meal_name);
-		$('#meal_owner').html(data.meal_owner);
-		$('#meal_ownerlink').attr('href', data.meal_ownerlink);
-		$('#meal_link').attr('href', data.meal_link);
-		$('#meal_link').attr('data-original-title', data.meal_up + " personer har läst receptet");
-		$('.count').show();
-		generateHearts(data.meal_percentage);
-		setTimeout(function() {
+	$.getJSON("/api/getmeal/", function (data) {
+		
+		if(data.error) {
+			
+			$('#meal_count').html("-");
+			$('.actionTrigger').attr('data-id', 0);
+			$('#meal_owner').html("-");
+			$('#meal_ownerlink').attr('href', "#");
+			$('#meal_link').attr('href', "#");
+			$('#meal_link').attr('data-original-title', "0 personer har läst receptet");
+			
+			generateHearts(0);
+			
+			$('#meal_name').html(data.error.code+" "+data.error.title);
 			toggleClass();
-		}, 1);
-		counts++;
+			return false;
+			
+		}
+		else {
+			var meal = data.data
+			
+			$('#meal_count').html("#"+meal.id);
+			$('.actionTrigger').attr('data-id', meal.id);
+			$('#meal_name').html(meal.name);
+			$('#meal_owner').html(meal.owner);
+			$('#meal_ownerlink').attr('href', meal.ownerlink);
+			$('#meal_link').attr('href', meal.link);
+			$('#meal_link').attr('data-original-title', meal.clicks + " personer har läst receptet");
+			$('.count').show();
+			generateHearts(meal.percentage);
+
+			toggleClass();
+			
+			return true;
+		}
 	});
 }
 
@@ -99,9 +120,9 @@ $('.actionTrigger').click(function () {
 	} else if($(this).attr('id') == "nextMeal") {
 		var id = $(this).attr('data-id');
 		getMeal();
-		$.get("/index.php/main/add_view?id="+id, function (data) {
-		});
+	});
 	} else {
-		alert('Något gick på tok');
+		// fail silently
+		return false;
 	}
 });
