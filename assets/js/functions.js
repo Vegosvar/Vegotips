@@ -115,7 +115,7 @@ function getMeal() {
 $('.actionTrigger').click(function () {
 	if($(this).attr('id') == "meal_link") {
 		var id = $(this).attr('data-id');
-		$.get("/index.php/main/add_up?id="+id, function (data) {
+		$.get("/api/click/"+id, function (data) {
 		});
 	} else if($(this).attr('id') == "nextMeal") {
 		var id = $(this).attr('data-id');
