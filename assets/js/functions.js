@@ -29,8 +29,6 @@ function generateHearts(percent) {
 }
 
 $(window).load(function() {
-	getMeal();
-
 
 	// Formulär
 	$('#tip_form').submit(function(ev) {

@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </head>
 
-<body>
+<body><? print_r($meal); ?>
 	<div class="page-wrapper">
 		<content>
 			<div class="text-center">
@@ -59,22 +59,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div id="hide">
 								
 								<div id="tips">
-									<div class="count" style="display:none;">
+									<div class="count">
 										<h1>Vegotips</h1>
-										<strong id="meal_count"></strong> 
+										<strong id="meal_count">#<? echo $meal['meals_id']; ?></strong> 
 										från 
-										<a id="meal_ownerlink" href="#" target="_blank">
-											<strong id="meal_owner"></strong>
+										<a id="meal_ownerlink" href="<? echo $meal['meals_ownerlink']; ?>" target="_blank">
+											<strong id="meal_owner"><? echo $meal['meals_owner']; ?></strong>
 										</a>
 									</div>
-									<span id="meal_name" class="name"></span>
-									<div class="popular"></div>
+									<span id="meal_name" class="name"><? echo $meal['meals_name']; ?></span>
+									<div class="popular">
+										<?
+											
+										if($meal['percentage'] >= 20) {
+											echo '<span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span>';
+										} else if($meal['percentage'] >= 15) {
+											echo '<span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart-empty"></span>';
+										} else if($meal['percentage'] >= 10) {
+											echo '<span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart-empty"></span><span class="glyphicon glyphicon-heart-empty"></span>';
+										} else if($meal['percentage'] >= 5) {
+											echo '<span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart-empty"></span><span class="glyphicon glyphicon-heart-empty"></span><span class="glyphicon glyphicon-heart-empty"></span>';
+										} else {
+											echo '<span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart-empty"></span><span class="glyphicon glyphicon-heart-empty"></span><span class="glyphicon glyphicon-heart-empty"></span><span class="glyphicon glyphicon-heart-empty"></span>';
+										}
+											
+										?>
+									</div>
 								</div>
 
 							</div>
 							<div class="row actions">
 								<div class="col-xs-6 col-sm-4 col-sm-offset-2">
-									<a href="#" id="meal_link" class="btn btn-primary actionTrigger" data-id="" target="_blank" data-toggle="tooltip" data-placement="bottom">
+									<a href="<? echo $meal['meals_link']; ?>" id="meal_link" class="btn btn-primary actionTrigger" data-id="" target="_blank" data-toggle="tooltip" data-placement="bottom">
 										<span class="glyphicon glyphicon-heart"></span> Se recept
 									</a>
 								</div>
