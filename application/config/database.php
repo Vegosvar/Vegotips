@@ -6,10 +6,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'xxx',
-	'username' => 'xxx',
-	'password' => 'xxx',
-	'database' => 'xxx',
+	'hostname' => 'mysql16.citynetwork.se',
+	'username' => '131428-ah67618',
+	'password' => 'nom_nom_n0m',
+	'database' => '131428-vegotips',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

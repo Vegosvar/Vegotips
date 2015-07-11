@@ -40,7 +40,6 @@ class Main extends CI_Controller {
 			// Generera fil från databasen
 			$output = array('meal_name' => $db[0]['meals_name'],
 							'meal_count' => $db[0]['meals_id'],
-							'meal_count_off' => $count[0]['c'],
 							'meal_up' => $db[0]['meals_up'],
 							'meal_percentage' => $percentage,
 							'meal_link' => $db[0]['meals_link'],
