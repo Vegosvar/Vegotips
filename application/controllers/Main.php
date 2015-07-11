@@ -23,6 +23,9 @@ class Main extends CI_Controller {
 	}
 
 
+	/**
+			WILL BE REMOVED
+	**/
 	public function getmeal() {
 		if($this->load->database() == false) {
 			echo ("database:error");
@@ -49,7 +52,9 @@ class Main extends CI_Controller {
 			echo json_encode($output);
 		}
 	}
-
+	/**
+			WILL BE REMOVED
+	**/
 	public function add_view() {
 		if(isset($_GET['id'])) {
 			if(!($this->load->database() == false)) {
@@ -71,7 +76,9 @@ class Main extends CI_Controller {
 			echo ("error");
 		}
 	}
-
+	/**
+			WILL BE REMOVED
+	**/
 	public function add_up() {
 		if(isset($_GET['id'])) {
 			if(!($this->load->database() == false)) {
