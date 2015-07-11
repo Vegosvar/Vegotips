@@ -41,10 +41,10 @@ class Api extends CI_Controller {
 			
 			if ($meal != false) {
 				// Calculate the percentage
-				if($meal['meals_up'] == 0 && $meal['meals_views'] == 0) { // Stop division by 0 later on, 'meals_up' is number of clicks and 'meals_views' is number of views.
+				if($meal['meals_views'] == 0) { // Stop division by 0 later on, 'meals_up' is number of clicks and 'meals_views' is number of views.
 					$percentage = 0; 
 				} else {
-					$percentage = round( ($meal['meals_up'] / ($meal['meals_views'] + $meal['meals_up'])) * 100 ); // Divide number of clicks with number of views and clicks. TODO: Discuss whether this is the best approach. 
+					$percentage = round( ($meal['meals_up'] / $meal['meals_views']) * 100 ); // Divide number of clicks with number of views and clicks. TODO: Discuss whether this is the best approach. 
 				}
 						
 				$data = array( // Initialize $data array

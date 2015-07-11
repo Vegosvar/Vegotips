@@ -15,10 +15,10 @@ class Main extends CI_Controller {
 		$data['meal'] = $this->meal_model->get_meal($id); // Get random meal. 
 		
 		// Calculate the percentage
-		if($data['meal']['meals_up'] == 0 && $data['meal']['meals_views'] == 0) { // Stop division by 0 later on, 'meals_up' is number of clicks and 'meals_views' is number of views.
+		if($data['meal']['meals_views'] == 0) { // Stop division by 0 later on, 'meals_up' is number of clicks and 'meals_views' is number of views.
 			$data['meal']['percentage'] = 0; 
 		} else {
-			$data['meal']['percentage'] = round( ($data['meal']['meals_up'] / ($data['meal']['meals_views'] + $data['meal']['meals_up'])) * 100 ); // Divide number of clicks with number of views and clicks. TODO: Discuss whether this is the best approach. 
+			$data['meal']['percentage'] = round( ($data['meal']['meals_up'] / $data['meal']['meals_views']) * 100 ); // Divide number of clicks with number of views and clicks. TODO: Discuss whether this is the best approach. 
 		}
 		 
 		$this->load->model('category_model'); // Load Category_model
