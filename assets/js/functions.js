@@ -1,13 +1,19 @@
+
+// Laddar...
 function toggleClass() {
 	$('#nextMeal').toggleClass('loading');
 	$('#tips').toggleClass('loading');
 }
 
+
+// Service info
 function serviceBusy() {
 	$('#hide').slideUp('fast');
 	$('#serviceBusy').slideDown('fast');
 }
 
+
+// Hjärtan
 function generateHearts(percent) {
 	if(percent >= 20) {
 		$('.popular').html('<span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span>');
@@ -25,6 +31,8 @@ function generateHearts(percent) {
 $(window).load(function() {
 	getMeal();
 
+
+	// Formulär
 	$('#tip_form').submit(function(ev) {
 		ev.preventDefault();
 		$.post("/index.php/submit/tip", $( "#tip_form" ).serialize() )
@@ -41,6 +49,8 @@ $(window).load(function() {
 		});
 	});
 
+
+	// Tangentbordstryckningar
 	$(document).keydown(function(e) {
 		e.preventDefault();
 		var key = e.which;
@@ -59,6 +69,8 @@ $(window).load(function() {
 	});
 });
 
+
+// Printa ut data i HTML
 var counts = 0;
 function getMeal() {
 	toggleClass();
@@ -80,6 +92,8 @@ function getMeal() {
 	});
 }
 
+
+// "Se recept" & "Nästa"
 $('.actionTrigger').click(function () {
 	if($(this).attr('id') == "meal_link") {
 		var id = $(this).attr('data-id');
