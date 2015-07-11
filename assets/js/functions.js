@@ -120,7 +120,6 @@ $('.actionTrigger').click(function () {
 	} else if($(this).attr('id') == "nextMeal") {
 		var id = $(this).attr('data-id');
 		getMeal();
-	});
 	} else {
 		// fail silently
 		return false;
