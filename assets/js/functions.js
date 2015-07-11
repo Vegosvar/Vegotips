@@ -77,7 +77,6 @@ function getMeal() {
 	$.getJSON("/index.php/main/getmeal", function (data) {
 		$('#meal_count').html("#"+data.meal_count);
 		$('.actionTrigger').attr('data-id', data.meal_id);
-		$('#meal_count_off').html(data.meal_count_off);
 		$('#meal_name').html(data.meal_name);
 		$('#meal_owner').html(data.meal_owner);
 		$('#meal_ownerlink').attr('href', data.meal_ownerlink);
