@@ -23,11 +23,12 @@ class Main extends CI_Controller {
 
 			// Räkna ut procenten
 			if($db[0]['meals_up'] == 0 && $db[0]['meals_views'] == 0) {
+				$percentage = 0; 
 			} else {
 				$percentage = round( ($db[0]['meals_up'] / ($db[0]['meals_views'] + $db[0]['meals_up'])) * 100 ); 
 			}
 
-			// Mata ut data
+			// Generera fil från databasen
 			$output = array('meal_name' => $db[0]['meals_name'],
 							'meal_count' => $db[0]['meals_id'],
 							'meal_count_off' => $count[0]['c'],
