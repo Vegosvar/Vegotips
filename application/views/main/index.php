@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </head>
 
-<body><? print_r($meal); ?>
+<body>
 	<div class="page-wrapper">
 		<content>
 			<div class="text-center">
