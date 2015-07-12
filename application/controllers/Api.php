@@ -15,6 +15,17 @@ class Api extends CI_Controller {
 		$this->load->view('errors/json/error', $data); // Pass $data to the json error view
 	}
 	
+	/**
+		_api_log - New log entry [PRIVATE]
+	
+			Needs $action, $data, $success
+	**/
+	private function _api_log($action, $data, $success) {
+		$this->load->model('api_model'); // Load Api_model
+		
+		$this->api_model->api_log($action, $data, $success); // New log entry	
+	}
+	
 	
 	/**
 		index - /api/ controller
@@ -39,12 +50,16 @@ class Api extends CI_Controller {
 	public function getmeal($id = false) {
 		
 		if (!is_numeric($id) && $id != false) { // $id is expecte(d to be integer, but is allowed to be empty (false)
+			
+			$this->_api_log('getmail', $id, false); // Log failed attempt
+			
 			$this->_api_error(400, "Bad request"); // Exit with error code 400 Bad Request
+			
 		} else { // Supplied $id is of acceptable format
 			$this->load->model('meal_model'); // Load Meal_model
 			$meal = $this->meal_model->get_meal($id); // Get meal. 
 			
-			if ($meal != false) {
+			if ($meal != false) { // There is a meal with this id
 				// Calculate the percentage
 				if($meal['meals_views'] == 0) { // Stop division by 0 later on, 'meals_up' is number of clicks and 'meals_views' is number of views.
 					$percentage = 0; 
@@ -67,10 +82,14 @@ class Api extends CI_Controller {
 					"meta" => array("total" => $this->meal_model->get_total_meals())
 				); 
 			
+				$this->_api_log('getmail', $meal['meals_id'], true); // Log successful attempt
 			
 				$this->load->view('api/json', array("output" => $data)); // Pass $data to the view main/index
 			}
-			else {
+			else { // No meal found
+				
+				$this->_api_log('getmail', $id, false); // Log failed attempt
+				
 				$this->_api_error(404, "Not Found"); // Exit with error code 404 Not Found
 			}
 		}
@@ -87,6 +106,8 @@ class Api extends CI_Controller {
 		$this->load->model('meal_model'); // Load Meal_model
 		
 		if (!is_numeric($id)) { // Not numeric
+			$this->_api_log('click', $id, false); // Log failed attempt
+			
 			$this->_api_error(400, "Bad Request"); // Exit with error code 400 Bad Request
 		}
 		if(isset($_COOKIE['meal_clicks'])) { // Check if cookie is set
@@ -99,11 +120,15 @@ class Api extends CI_Controller {
 				$cookie_data[] = $id; // Add $id to cookie array
 				setcookie('meal_clicks', json_encode($cookie_data), time()+1800); // Set the cookie again, 30MIN expiry time
 		
+				$this->_api_log('click', $id, true); // Log successful attempt
+				
 				$this->_api_error(200, "OK"); // Exit with error code 200 OK
 				
 			}
 			else {
 				// User has already viewed this meal.
+				$this->_api_log('click', $id, false); // Log failed attempt
+				
 				$this->_api_error(403, "Forbidden"); // Exit with error code 403 Forbidden
 			}
 		} else { // No cookie has been set
@@ -112,6 +137,8 @@ class Api extends CI_Controller {
 			
 			$cookie_data = array($id); // Add $id to cookie array
 			setcookie('meal_clicks', json_encode($cookie_data), time()+1800); // Set the cookie for the first time, 30MIN expiry time
+	
+			$this->_api_log('click', $id, true); // Log successful attempt
 	
 			$this->_api_error(200, "OK"); // Exit with error code 200 OK
 		}
@@ -130,12 +157,18 @@ class Api extends CI_Controller {
 		$this->load->model('meal_model'); // Load Meal_model
 		
 		if($_POST['name'] == "" || $_POST['link'] == "" || $_POST['category'] == "" || !(isset($_POST['category']))) {
+			$this->_api_log('submit', null, false); // Log failed attempt
+			
 			$this->_api_error(406, "Not Acceptable"); // Exit with error code
 		} else {
 			
 			if($this->meal_model->insert_meal($_POST['name'], $_POST['link'], $_POST['category'])) {
+				$this->_api_log('click', $_POST['name'], true); // Log successful attempt
+				
 				$this->_api_error(200, "OK"); // Exit with error code
 			} else {
+				$this->_api_log('click', null, false); // Log failed attempt
+				
 				$this->_api_error(); // Exit with error code
 			}
 			
