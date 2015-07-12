@@ -106,13 +106,26 @@ function getMeal(id) {
 	$.getJSON("/api/getmeal/"+id, function (data) {
 		
 		if(data.error) {
-			swapContent({"id":"-",
-				"owner":"-",
-				"ownerlink":"#",
-				"link":"#",
+			
+			if (data.error.code == 404) {
+				swapContent({"id":"404",
+				"owner":"servern",
+				"ownerlink":"/",
+				"link":"/",
 				"clicks":"0",
 				"percentage":"0",
-				"name":data.error.code+" "+data.error.title},"Vegotips - "+data.error.code+" "+data.error.title);
+				"name":"Maten kunde inte hittas"},"Vegotips - #404 Maten kunde inte hittas");
+			}
+			else {
+				swapContent({"id":"-",
+					"owner":"-",
+					"ownerlink":"#",
+					"link":"#",
+					"clicks":"0",
+					"percentage":"0",
+					"name":data.error.code+" "+data.error.title},"Vegotips - "+data.error.code+" "+data.error.title);
+			
+			}
 			
 			toggleClass();
 			return false;
