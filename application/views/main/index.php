@@ -40,6 +40,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 	  ga('create', 'UA-55653281-4', 'auto');
 	  ga('send', 'pageview');
+	  
+	  var first_meal = <? echo $meal['meals_id']; ?>;
 	</script>
 
 </head>

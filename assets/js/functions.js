@@ -28,6 +28,20 @@ function generateHearts(percent) {
 	}
 }
 
+function swapContent(meal,title) {
+	$('#meal_count').html("#"+meal.id);
+	$('#meal_name').html(meal.name);
+	$('#meal_owner').html(meal.owner);
+	$('#meal_ownerlink').attr('href', meal.ownerlink);
+	$('#meal_link').attr('href', meal.link);
+	$('#meal_link').attr('data-original-title', meal.clicks + " personer har läst receptet");
+	$('.count').show();
+	generateHearts(meal.percentage);
+	
+	document.title = title;
+	
+	return true;
+}
 
 $(window).load(function() {
 
@@ -73,45 +87,33 @@ window.onpopstate = function(event) { // Enables going backwards in history.
 	if (event.state != null) { // If previous page was NOT index, load the data stored by the user.
 		toggleClass();
 		setTimeout(function() {
-		    document.title = event.state.pageTitle;
-	
-			var meal = event.state.meal;
-	
-			$('#meal_count').html("#"+meal.id);
-			$('.actionTrigger').attr('data-id', meal.id);
-			$('#meal_name').html(meal.name);
-			$('#meal_owner').html(meal.owner);
-			$('#meal_ownerlink').attr('href', meal.ownerlink);
-			$('#meal_link').attr('href', meal.link);
-			$('#meal_link').attr('data-original-title', meal.clicks + " personer har läst receptet");
-			$('.count').show();
-			generateHearts(meal.percentage);
+			swapContent(event.state.meal,event.state.pageTitle);
+			
 			toggleClass();	
 		}, 100);
 	} else { // Last page was index, proceed with random meal.
-		getMeal();
+		getMeal(first_meal);
 	}
 };
 
 
 // Print HTML
 var counts = 0;
-function getMeal() {
+function getMeal(id) {
+    id = id || "";
+	
 	toggleClass();
-	$.getJSON("/api/getmeal/", function (data) {
+	$.getJSON("/api/getmeal/"+id, function (data) {
 		
 		if(data.error) {
+			swapContent({"id":"-",
+				"owner":"-",
+				"ownerlink":"#",
+				"link":"#",
+				"clicks":"0",
+				"percentage":"0",
+				"name":data.error.code+" "+data.error.title},"Vegotips - "+data.error.code+" "+data.error.title);
 			
-			$('#meal_count').html("-");
-			$('.actionTrigger').attr('data-id', 0);
-			$('#meal_owner').html("-");
-			$('#meal_ownerlink').attr('href', "#");
-			$('#meal_link').attr('href', "#");
-			$('#meal_link').attr('data-original-title', "0 personer har läst receptet");
-			
-			generateHearts(0);
-			
-			$('#meal_name').html(data.error.code+" "+data.error.title);
 			toggleClass();
 			return false;
 			
@@ -119,17 +121,8 @@ function getMeal() {
 		else {
 			var meal = data.data
 			
-			$('#meal_count').html("#"+meal.id);
-			$('.actionTrigger').attr('data-id', meal.id);
-			$('#meal_name').html(meal.name);
-			$('#meal_owner').html(meal.owner);
-			$('#meal_ownerlink').attr('href', meal.ownerlink);
-			$('#meal_link').attr('href', meal.link);
-			$('#meal_link').attr('data-original-title', meal.clicks + " personer har läst receptet");
-			$('.count').show();
-			generateHearts(meal.percentage);
-
-	        document.title = "Vegotips - #"+meal.id+" "+meal.name;
+			swapContent(data.data,"Vegotips - #"+meal.id+" "+meal.name);
+			
 	        window.history.pushState({"meal":meal,"pageTitle":document.title},document.title, "/"+meal.id);
 
 			toggleClass();
@@ -147,7 +140,7 @@ $('.actionTrigger').click(function () {
 		$.get("/api/click/"+id, function (data) {
 		});
 	} else if($(this).attr('id') == "nextMeal") {
-		var id = $(this).attr('data-id');
+		
 		getMeal();
 		return false;
 	} else {
