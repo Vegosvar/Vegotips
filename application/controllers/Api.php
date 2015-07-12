@@ -62,7 +62,7 @@ class Api extends CI_Controller {
 			if ($meal != false) { // There is a meal with this id
 				// Calculate the percentage
 				if($meal['meals_views'] == 0) { // Stop division by 0 later on, 'meals_up' is number of clicks and 'meals_views' is number of views.
-					$percentage = 0; 
+					$percentage = 100; 
 				} else {
 					$percentage = round( ($meal['meals_up'] / $meal['meals_views']) * 100 ); 
 				}

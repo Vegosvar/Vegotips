@@ -28,7 +28,7 @@ class Main extends CI_Controller {
 		
 		// Calculate the percentage
 		if($data['meal']['meals_views'] == 0) { // Stop division by 0 later on, 'meals_up' is number of clicks and 'meals_views' is number of views.
-			$data['meal']['percentage'] = 0; 
+			$data['meal']['percentage'] = 100; 
 		} else {
 			$data['meal']['percentage'] = round( ($data['meal']['meals_up'] / $data['meal']['meals_views']) * 100 ); // Divide number of clicks with number of views and clicks. TODO: Discuss whether this is the best approach. 
 		}
