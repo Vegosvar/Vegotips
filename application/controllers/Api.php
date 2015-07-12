@@ -51,7 +51,7 @@ class Api extends CI_Controller {
 		
 		if (!is_numeric($id) && $id != false) { // $id is expecte(d to be integer, but is allowed to be empty (false)
 			
-			$this->_api_log('getmail', $id, false); // Log failed attempt
+			$this->_api_log('getmeal', $id, false); // Log failed attempt
 			
 			$this->_api_error(400, "Bad request"); // Exit with error code 400 Bad Request
 			
@@ -82,13 +82,13 @@ class Api extends CI_Controller {
 					"meta" => array("total" => $this->meal_model->get_total_meals())
 				); 
 			
-				$this->_api_log('getmail', $meal['meals_id'], true); // Log successful attempt
+				$this->_api_log('getmeal', $meal['meals_id'], true); // Log successful attempt
 			
 				$this->load->view('api/json', array("output" => $data)); // Pass $data to the view main/index
 			}
 			else { // No meal found
 				
-				$this->_api_log('getmail', $id, false); // Log failed attempt
+				$this->_api_log('getmeal', $id, false); // Log failed attempt
 				
 				$this->_api_error(404, "Not Found"); // Exit with error code 404 Not Found
 			}
