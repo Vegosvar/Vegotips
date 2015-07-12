@@ -50,7 +50,7 @@ $(window).load(function() {
 
 	// Tangentbordstryckningar
 	$(document).keydown(function(e) {
-		e.preventDefault();
+		//e.preventDefault(); If you want to do this, you need to find another way. Impossible to enter data into input fields otherwise.
 		var key = e.which;
 		if(key == 82 || key == 78 || key == 13) {
 			getMeal();
