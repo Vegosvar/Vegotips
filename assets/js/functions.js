@@ -69,6 +69,32 @@ $(window).load(function() {
 });
 
 
+window.onpopstate = function(event) { // Enables going backwards in history. 
+	
+	
+	if (event.state != null) { // If previous page was NOT index, load the data stored by the user.
+		toggleClass();
+		setTimeout(function() {
+		    document.title = event.state.pageTitle;
+	
+			var meal = event.state.meal;
+	
+			$('#meal_count').html("#"+meal.id);
+			$('.actionTrigger').attr('data-id', meal.id);
+			$('#meal_name').html(meal.name);
+			$('#meal_owner').html(meal.owner);
+			$('#meal_ownerlink').attr('href', meal.ownerlink);
+			$('#meal_link').attr('href', meal.link);
+			$('#meal_link').attr('data-original-title', meal.clicks + " personer har läst receptet");
+			$('.count').show();
+			generateHearts(meal.percentage);
+			toggleClass();	
+		}, 100);
+	} else { // Last page was index, proceed with random meal.
+		getMeal();
+	}
+};
+
 // Printa ut data i HTML
 var counts = 0;
 function getMeal() {
@@ -103,6 +129,10 @@ function getMeal() {
 			$('#meal_link').attr('data-original-title', meal.clicks + " personer har läst receptet");
 			$('.count').show();
 			generateHearts(meal.percentage);
+
+	        document.title = "Vegotips - #"+meal.id+" "+meal.name;
+	        window.history.pushState({"meal":meal,"pageTitle":document.title},document.title, "/"+meal.id);
+			
 
 			toggleClass();
 			
