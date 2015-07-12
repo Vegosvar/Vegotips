@@ -59,7 +59,10 @@ $(window).load(function() {
 					$('#thanksForTips').removeClass('show');
 				}, 8000);
 			} else {
-				alert("Något vart fel. Kontrollera att samtliga fält är ifyllda.");
+				$('#thanksForErrors').addClass('show');
+				setTimeout(function() {
+					$('#thanksForErrors').removeClass('show');
+				}, 8000);
 			}
 		});
 	});

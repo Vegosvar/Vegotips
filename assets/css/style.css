@@ -486,6 +486,23 @@ article .actions .btn.btn-secondary.loading .glyphicon {
   opacity: 1;
   display: inline-block;
 }
+#thanksForErrors {
+  background: #a63a3a;
+  color: #fff;
+  padding: 5px 15px;
+  display: inline-block;
+  margin-top: -5px;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.1s ease-in;
+  transition: opacity 0.1s ease-in;
+}
+#thanksForErrors.show {
+    opacity: 1;
+    display: inline-block;
+}
 footer {
   color: #fff;
   margin-bottom: 60px;
