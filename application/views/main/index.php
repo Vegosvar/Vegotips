@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<strong id="meal_owner"><? echo $meal['meals_owner']; ?></strong>
 										</a>
 									</div>
-									<span class="name"><a href="<? echo $meal['meals_link']; ?>"  id="meal_name"><? echo $meal['meals_name']; ?></a></span>
+									<span class="name"><a href="<? echo $meal['meals_link']; ?>"  id="meal_name" target="_blank"><? echo $meal['meals_name']; ?></a></span>
 									<div class="popular">
 										<?
 											
