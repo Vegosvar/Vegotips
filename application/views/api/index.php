@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</table>
 							</div>
 
-							<div class="well">			
+							<div class="well">
 								<h3>Utdata</h3>
 								<table class="table">
 									<thead>
@@ -142,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="well">
 							<h3>Exempelanrop</h3>
 								<div class="well">
-									<p><strong>http://localhost/api/getmeal/</strong></p>
+									<p><strong>GET http://vegotips.se/api/getmeal/</strong></p>
 									<code>{<br>
 										&nbsp;&nbsp;&nbsp;&nbsp;"data":&nbsp;{<br>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"clicks":&nbsp;"2",<br>
@@ -162,7 +162,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</code></p>
 								</div>
 								<div class="well">
-									<p><strong>http://localhost/api/getmeal/32</strong></p>
+									<p><strong>GET http://vegotips.se/api/getmeal/32</strong></p>
 									<code>{<br>
 										&nbsp;&nbsp;&nbsp;&nbsp;"data": {<br>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"clicks": "2",<br>
@@ -219,17 +219,100 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							
 							<div class="well">
+								<h3>Exempelanrop</h3>
+								<div class="well">
+									<p><strong>GET http://vegotips.se/api/click/3</strong></p>
+									<code>{<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;"error": {<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code": 200,<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "OK"<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+										}<br>
+									</code>
+								</div>
+								
+							</div>
+
+							<hr>
+							
+							<h2>/api/getcategories/</h2>
+							<p>Listar alla kategorier.</p>
+							
+							<div class="well">
+								<h3>Indata</h3>
+								<table class="table">
+									<tr>
+										<td>Metoden saknar indata</td>
+									</tr>
+								</table>
+							</div>
+											
+							<div class="well">			
+								<h3>Utdata</h3>
+								<table class="table">
+									<thead>
+										<tr>
+											<td>data</td>
+											<td></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>id</strong></td>
+											<td>ID på kategorin</td>
+										</tr>
+										<tr>
+											<td><strong>name</strong></td>
+											<td>Namn på kategorin</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<table class="table">
+									<thead>
+										<tr>
+											<td>meta</td>
+											<td></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>total</strong></td>
+											<td>Antalet existerande kategorier</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							
+							<div class="well">
 							<h3>Exempelanrop</h3>
 							<div class="well">
-								<p><strong>http://localhost/api/click/3</strong></p>
+								<p><strong>GET http://vegotips.se/api/getcategories</strong></p>
 								<code>{<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;"error": {<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code": 200,<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "OK"<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;"data": [<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "1",<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Lagat",<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "category"<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "2",<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Bakat",<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "category"<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "3",<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Grillat",<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "category"<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;"meta": {<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": "3"<br>
 									&nbsp;&nbsp;&nbsp;&nbsp;}<br>
 									}<br>
 								</code>
 							</div>
+							
 						</div>
 					</div>
 				</div>
