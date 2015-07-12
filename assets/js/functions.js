@@ -70,15 +70,17 @@ $(window).load(function() {
 	// Keybord
 	$(document).keydown(function(e) {
 		var key = e.which;
-		if(key == 13) {
-			$('#supertips .tips').hide();
-			$('#supertips .success').show();
-			setTimeout(function() {
-				$('#supertips .success').addClass('deactivate');
-			}, 2500);
-			getMeal();
-		} else if(key == 76 || key == 83) {
-			$('#meal_link').trigger('click');
+		if($('.modal').css('opacity') == 0) {	// Prevents the user from loading a new meal while modal is visible, this prevents the style bug that occured.
+			if(key == 13) {
+				$('#supertips .tips').hide();
+				$('#supertips .success').show();
+				setTimeout(function() {
+					$('#supertips .success').addClass('deactivate');
+				}, 2500);
+				getMeal();
+			} else if(key == 76 || key == 83) {
+				$('#meal_link').trigger('click');
+			}
 		}
 	});
 });

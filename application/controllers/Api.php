@@ -168,14 +168,20 @@ class Api extends CI_Controller {
 
 				$this->_api_error(406, "Not Acceptable");
 			} else {
-				if($this->meal_model->insert_meal($_POST['name'], $_POST['link'], $_POST['category'])) {
-					$this->_api_log('click', $_POST['name'], true); // Log successful attempt
-				
-					$this->_api_error(200, "OK"); // Exit with error code
+				if(filter_var($_POST['link'], FILTER_VALIDATE_URL) == false) {
+					$this->_api_log('submit', null, false);
+
+					$this->_api_error(406, "Not Acceptable");
 				} else {
-					$this->_api_log('click', null, false); // Log failed attempt
+					if($this->meal_model->insert_meal($_POST['name'], $_POST['link'], $_POST['category'])) {
+						$this->_api_log('submit', $_POST['name'], true); // Log successful attempt
 				
-					$this->_api_error(); // Exit with error code
+						$this->_api_error(200, "OK"); // Exit with error code
+					} else {
+						$this->_api_log('click', null, false); // Log failed attempt
+				
+						$this->_api_error(); // Exit with error code
+					}
 				}
 			}
 		}
