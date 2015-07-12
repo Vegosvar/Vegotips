@@ -95,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</a>
 								</div>
 								<div class="col-xs-6 col-sm-4">
-									<a href="javascript:;" id="nextMeal" data-id="" class="btn btn-secondary actionTrigger">
+									<a href="/" id="nextMeal" data-id="" class="btn btn-secondary actionTrigger">
 										<span class="glyphicon glyphicon-repeat"></span> Nästa
 									</a>
 								</div>
