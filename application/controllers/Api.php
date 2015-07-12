@@ -151,7 +151,7 @@ class Api extends CI_Controller {
 			Takes a series of inputs
 			Loads /api/json view.
 			
-			// TODO: More input sanitation. Too much trust is put in the data. Does category exist? Is it numeric? 
+			// TODO: More input sanitation. Too much trust is put in the data. Does category exist? Is it numeric? Perhaps make use of CI's form validation module
 	**/
 	public function submit() { 
 		$this->load->model('meal_model'); // Load Meal_model
@@ -160,7 +160,7 @@ class Api extends CI_Controller {
 			$this->_api_log('submit', null, false); // Log failed attempt
 			
 			$this->_api_error(406, "Not Acceptable"); // Exit with error code
-		} else {
+		} else { // None of the fields are empty
 			
 			if($this->meal_model->insert_meal($_POST['name'], $_POST['link'], $_POST['category'])) {
 				$this->_api_log('click', $_POST['name'], true); // Log successful attempt
