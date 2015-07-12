@@ -14,6 +14,18 @@ class Main extends CI_Controller {
 		$this->load->model('meal_model'); // Load Meal_model
 		$data['meal'] = $this->meal_model->get_meal($id); // Get random meal. 
 		
+		if ($data['meal'] == false) {
+			$data['meal'] = array('meals_id' => "404",
+				'meals_name' => "Maten kunde inte hittas",
+				'meals_up' => 0,
+				'meals_views' => 0,
+				'meals_percentage' => 0,
+				'meals_link' => "/",
+				'meals_owner' => "servern",
+				'meals_ownerlink' => "/");
+						
+		}
+		
 		// Calculate the percentage
 		if($data['meal']['meals_views'] == 0) { // Stop division by 0 later on, 'meals_up' is number of clicks and 'meals_views' is number of views.
 			$data['meal']['percentage'] = 0; 
