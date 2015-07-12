@@ -30,7 +30,7 @@ function generateHearts(percent) {
 
 function swapContent(meal,title) {
 	$('#meal_count').html("#"+meal.id);
-	$('.actionTrigger').attr('data-id', 0);
+	$('#meal_link').attr('data-id', meal.id);
 	$('#meal_name').html(meal.name);
 	$('#meal_owner').html(meal.owner);
 	$('#meal_ownerlink').attr('href', meal.ownerlink);
@@ -149,19 +149,14 @@ function getMeal(id) {
 	});
 }
 
+$('#meal_link, #meal_name').click(function () {
+	var id = $('#meal_link').attr('data-id');
+	$.get("/api/click/"+id, function (data) {});
+});
 
 // Actions
-$('.actionTrigger').click(function () {
-	if($(this).attr('id') == "meal_link") {
-		var id = $(this).attr('data-id');
-		$.get("/api/click/"+id, function (data) {
-		});
-	} else if($(this).attr('id') == "nextMeal") {
-		
-		getMeal();
-		return false;
-	} else {
-		// fail silently
-		return false;
-	}
+$('#nextMeal').click(function () {
+	getMeal();
+	return false;
+	
 });
