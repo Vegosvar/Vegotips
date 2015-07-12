@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<div class="row actions">
 								<div class="col-xs-6 col-sm-4 col-sm-offset-2">
-									<a href="<? echo $meal['meals_link']; ?>" id="meal_link" class="btn btn-primary actionTrigger" data-id="" target="_blank" data-toggle="tooltip" data-placement="bottom" data-original-title="<? echo $meal['meals_up']; ?> personer har läst receptet">
+									<a href="<? echo $meal['meals_link']; ?>" id="meal_link" class="btn btn-primary actionTrigger" data-id="<? echo $meal['meals_id']; ?>" target="_blank" data-toggle="tooltip" data-placement="bottom" data-original-title="<? echo $meal['meals_up']; ?> personer har läst receptet">
 										<span class="glyphicon glyphicon-heart"></span> Se recept
 									</a>
 								</div>
