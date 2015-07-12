@@ -156,7 +156,9 @@ class Api extends CI_Controller {
 	public function submit() { 
 		$this->load->model('meal_model'); // Load Meal_model
 		
-		if($_POST['name'] == "" || $_POST['link'] == "" || $_POST['category'] == "" || !(isset($_POST['category']))) {
+		//if($_POST['name'] == "" || $_POST['link'] == "" || $_POST['category'] == "" || !(isset($_POST['category']))) {
+		
+		if(!(isset($_POST['name'])) || !(isset($_POST['link'])) || !(isset($_POST['category']))) {
 			$this->_api_log('submit', null, false); // Log failed attempt
 			
 			$this->_api_error(406, "Not Acceptable"); // Exit with error code
@@ -176,4 +178,28 @@ class Api extends CI_Controller {
 	}
 	
 	
+	/**
+		getcategories - /api/getcategories controller
+			
+			Outputs list of categories
+			Loads /api/json view.
+	**/
+	public function getcategories() { 
+		$this->load->model('category_model'); // Load Category model
+		
+		$data = array( // Initialize $data array
+			"data" => array(),
+			"meta" => array("total" => $this->category_model->get_total_categories())
+		);
+		
+		foreach ($this->category_model->get_categories_array() as $category) {
+			$data['data'][] = array("type" => "category",
+				"id" => $category['categories_id'],
+				"name" => $category['categories_name']);
+		}
+		
+		$this->_api_log('getcategories', null, true); // Log successful attempt
+		
+		$this->load->view('api/json', array("output" => $data)); // Pass $data to the view main/index
+	}
 }

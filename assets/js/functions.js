@@ -30,6 +30,7 @@ function generateHearts(percent) {
 
 function swapContent(meal,title) {
 	$('#meal_count').html("#"+meal.id);
+	$('.actionTrigger').attr('data-id', 0);
 	$('#meal_name').html(meal.name);
 	$('#meal_owner').html(meal.owner);
 	$('#meal_ownerlink').attr('href', meal.ownerlink);
@@ -66,9 +67,7 @@ $(window).load(function() {
 	// Keybord
 	$(document).keydown(function(e) {
 		var key = e.which;
-		if(key == 82 || key == 78) {
-			getMeal();
-		} else if(key == 13) {
+		if(key == 13) {
 			$('#supertips .tips').hide();
 			$('#supertips .success').show();
 			setTimeout(function() {
