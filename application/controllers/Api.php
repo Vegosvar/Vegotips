@@ -21,8 +21,13 @@ class Api extends CI_Controller {
 	
 			Loads /api/index view.
 	**/
-	public function index() { // Index controller. 
-		$this->load->view('api/index'); // Display api info page. No data will be passed.
+	public function index() { // Index controller.
+		$this->load->model('category_model'); // Load Category_model
+		$categories = $this->category_model->get_categories(); // Get all cetegories
+		shuffle($categories); // Shuffle the returned rows
+		$data = array('categories' => $categories);
+		
+		$this->load->view('api/index', $data); // Display api info page. No data will be passed.
 	}
 
 	/**
