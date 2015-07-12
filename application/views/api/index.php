@@ -313,6 +313,77 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</code>
 							</div>
 							
+							</div>
+
+							<hr>
+							
+							<h2>/api/submit/</h2>
+							<p>Tipsa om en .</p>
+							
+							<div class="well">
+								<h3>Indata</h3>
+								<table class="table">
+									<tr>
+										<td><strong>name</strong></td>
+										<td>Namn på maträtten <strong>(obligatorisk)</strong></td>
+									</tr>
+									<tr>
+										<td><strong>link</strong></td>
+										<td>Länk till receptet <strong>(obligatorisk)</strong></td>
+									</tr>
+									<tr>
+										<td><strong>category</strong></td>
+										<td>ID på kategorin som maträtten ska ligga i. Heltal <strong>(obligatorisk)</strong></td>
+									</tr>
+								</table>
+							</div>
+											
+							<div class="well">			
+								<h3>Utdata</h3>
+								<table class="table">
+									<thead>
+										<tr>
+											<td>error</td>
+											<td></td>
+										</tr>
+									</thead>
+									<tr>
+										<td><strong>code</strong></td>
+										<td>Statuskod</td>
+									</tr>
+									<tr>
+										<td><strong>title</strong></td>
+										<td>Beskrivning</td>
+									</tr>
+								</table>
+							</div>
+							
+							<div class="well">
+							<h3>Exempelanrop</h3>
+							<div class="well">
+								<p><strong>POST http://vegotips.se/api/submit</strong> name: <em>"namn"</em>, link: <em>"http://vegosvar.se"</em>, category: <em>1</em></p>
+								<code>{<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;"error": {<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code": 200,<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "OK"<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+										}<br>
+								</code>
+							</div>
+							
+							<div class="well">
+								<p><strong>POST http://vegotips.se/api/submit</strong> name: <em>""</em>, link: <em>"http://vegosvar.se"</em>, category: <em>"Mat"</em></p>
+								<code>{<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;"error": {<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code": 406,<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "Not Acceptable"<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+										}<br>
+								</code>
+							</div>
+						
+							</div>
+							
 						</div>
 					</div>
 				</div>
