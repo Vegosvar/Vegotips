@@ -46,7 +46,6 @@ function swapContent(meal,title) {
 }
 
 $(window).load(function() {
-
 	// Form
 	$('#tip_form').submit(function(ev) {
 		ev.preventDefault();
