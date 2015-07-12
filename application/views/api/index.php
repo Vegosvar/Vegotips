@@ -105,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<td>Antal visningar</td>
 										</tr>
 										<tr>
-											<td><strong>procentage</strong></td>
+											<td><strong>percentage</strong></td>
 											<td>Antal klick på "Visa recept" delat med antal visningar (views)</td>
 										</tr>
 										<tr>
