@@ -46,6 +46,8 @@ body {
 	font-family: 'Open Sans', Arial;
 	-webkit-font-smoothing: antialiased;
 	animation: fadein 1s ease-in-out;
+	font-size: 15px;
+	line-height: 1.5;
 }
 
 h1 {
@@ -54,10 +56,20 @@ h1 {
 
 p {
 	margin-bottom: 15px;
+	&.preamble {
+		font-size: 23px;
+		opacity: 0.7;
+		font-weight: 100;
+	}
 }
 
 table {
 	margin-top: 15px;
+}
+
+hr {
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 a {
@@ -66,6 +78,24 @@ a {
 		color: @brand-primary;
 		text-decoration: none;
 	}
+}
+
+.well {
+	box-shadow: none;
+	border: 2px solid #BADFC7;
+	background: none;
+	.well {
+		background: #f9f2f4;
+		border: none;
+	}
+}
+
+thead {
+	background: #BADFC7;
+}
+
+blockquote {
+	border-left: 5px solid @brand-primary;
 }
 
 // Design

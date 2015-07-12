@@ -89,6 +89,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -webkit-animation: fadein 1s ease-in-out;
           animation: fadein 1s ease-in-out;
+  font-size: 15px;
+  line-height: 1.5;
 }
 h1 {
   margin-bottom: 15px;
@@ -96,8 +98,17 @@ h1 {
 p {
   margin-bottom: 15px;
 }
+p.preamble {
+  font-size: 23px;
+  opacity: 0.7;
+  font-weight: 100;
+}
 table {
   margin-top: 15px;
+}
+hr {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 a {
   color: #000;
@@ -105,6 +116,21 @@ a {
 a:hover {
   color: #1fccba;
   text-decoration: none;
+}
+.well {
+  box-shadow: none;
+  border: 2px solid #BADFC7;
+  background: none;
+}
+.well .well {
+  background: #f9f2f4;
+  border: none;
+}
+thead {
+  background: #BADFC7;
+}
+blockquote {
+  border-left: 5px solid #1fccba;
 }
 .page-wrapper {
   width: 100%;

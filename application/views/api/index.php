@@ -59,161 +59,181 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="row">
 						<div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">							
 							<h1>Vegotips API</h1>
-							<p>De APIer som används för att hämta och publicera information till och från Vegotips finns tillgängliga för allmänheten och finns dokumenterade på denna webbplats. Ingen API-nyckel krävs, men samtliga anrop loggas.</p>
-							<p><em>Användande av Vegosvars API innebär samförstånd i att APIt inte får användas i brottsligt eller annat skadligt syfte.</em></p>
-							<p>Vegosvar eller Vegotips tillhandahåller ingen support för APIt eller tar något ansvar för eventuella problem som uppstår på grund av fel i mjukvaran.<br><br></p>
+							<p class="preamble">De APIer som används för att hämta och publicera information till och från Vegotips finns tillgängliga för allmänheten och finns dokumenterade på denna webbplats. Ingen API-nyckel krävs, men samtliga anrop loggas.</p>
+							<p>Användande av Vegosvars API innebär samförstånd i att APIt inte får användas i brottsligt eller annat skadligt syfte. Vegosvar eller Vegotips tillhandahåller ingen support för APIt eller tar något ansvar för eventuella problem som uppstår på grund av fel i mjukvaran.</p>
+							<blockquote>"With great food, comes great responsibility" - Vegotips</blockquote><br>
+
 							
 							<h2>Dokumentation</h2>
 							<p>Samtliga anrop returnerar data i JSON. Nedan beskrivs varje metod, tillsammans med exempel på den data som kan returneras.<br></p>
 							
-							<p>&nbsp;</p>
-							
-							<h4>/api/getmeal/<strong>[id]</strong></h4>
+							<hr>
+
+							<h2>/api/getmeal/<strong>[id]</strong></h2>
 							<p>Returnerar ett modererat recept. Är ett id definierat returneras receptet med samma id. Saknas id så returneras ett slumpat id.</p>
 							
-							<h5><strong>Indata</strong></h5>
-							<table class="table table-striped">
-								<tr>
-									<td><strong>id</strong></td>
-									<td>ID på maträtten. Heltal <strong>(valfri)</strong></td>
-								</tr>
-							</table>
-														
-							<h5><strong>Utdata</strong></h5>
-							<table class="table table-striped">
-								<tr>
-									<td><strong>data</strong></td>
-									<td>
-										<table class="table table-striped">
-											<tr>
-												<td><strong>id</strong></td>
-												<td>ID på receptet</td>
-											</tr>
-											<tr>
-												<td><strong>name</strong></td>
-												<td>Namn på receptet</td>
-											</tr>
-											<tr>
-												<td><strong>clicks</strong></td>
-												<td>Antal klick på "Visa recept"</td>
-											</tr>
-											<tr>
-												<td><strong>views</strong></td>
-												<td>Antal visningar</td>
-											</tr>
-											<tr>
-												<td><strong>procentage</strong></td>
-												<td>Antal klick på "Visa recept" delat med antal visningar (clicks/views)</td>
-											</tr>
-											<tr>
-												<td><strong>link</strong></td>
-												<td>URL till recept</td>
-											</tr>
-											<tr>
-												<td><strong>owner</strong></td>
-												<td>Ägaren till receptet</td>
-											</tr>
-											<tr>
-												<td><strong>ownerlink</strong></td>
-												<td>URL till ägaren</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-								<tr>
-									<td><strong>meta</strong></td>
-									<td>
-										<table class="table table-striped">
-											<tr>
-												<td><strong>total</strong></td>
-												<td>Antalet existerande maträtter</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
+							<div class="well">
+								<h3>Indata</h3>
+								<table class="table">
+									<tr>
+										<td><strong>id</strong></td>
+										<td>ID på maträtten. Heltal <strong>(valfri)</strong></td>
+									</tr>
+								</table>
+							</div>
+
+							<div class="well">			
+								<h3>Utdata</h3>
+								<table class="table">
+									<thead>
+										<tr>
+											<td>data</td>
+											<td></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>id</strong></td>
+											<td>ID på receptet</td>
+										</tr>
+										<tr>
+											<td><strong>name</strong></td>
+											<td>Namn på receptet</td>
+										</tr>
+										<tr>
+											<td><strong>clicks</strong></td>
+											<td>Antal klick på "Visa recept"</td>
+										</tr>
+										<tr>
+											<td><strong>views</strong></td>
+											<td>Antal visningar</td>
+										</tr>
+										<tr>
+											<td><strong>procentage</strong></td>
+											<td>Antal klick på "Visa recept" delat med antal visningar (views)</td>
+										</tr>
+										<tr>
+											<td><strong>link</strong></td>
+											<td>URL till recept</td>
+										</tr>
+										<tr>
+											<td><strong>owner</strong></td>
+											<td>Ägaren till receptet</td>
+										</tr>
+										<tr>
+											<td><strong>ownerlink</strong></td>
+											<td>URL till ägaren</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<table class="table">
+									<thead>
+										<tr>
+											<td>meta</td>
+											<td></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>total</strong></td>
+											<td>Antalet existerande maträtter</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+								
+							<div class="well">
+							<h3>Exempelanrop</h3>
+								<div class="well">
+									<p><strong>http://localhost/api/getmeal/</strong></p>
+									<code>{<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;"data":&nbsp;{<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"clicks":&nbsp;"17",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;"85",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"link":&nbsp;"http://veganen.blogspot.se/2013/09/vegansk-omelett.html",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":&nbsp;"Vegansk&nbsp;omelett",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"owner":&nbsp;"Veganen",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ownerlink":&nbsp;"http://veganen.blogspot.se",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"percentage":&nbsp;155,<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"meal",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"views":&nbsp;"11"<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;"meta":&nbsp;{<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total":&nbsp;"98"<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+										}
+									</code></p>
+								</div>
+								<div class="well">
+									<p><strong>http://localhost/api/getmeal/32</strong></p>
+									<code>{<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;"data": {<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"clicks": "2",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "32",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"link": "http://veganmage.se/2009/06/28/freiluftkino-och-en-pizza-med-bolognese/",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Pizza med bolognese",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"owner": "Veganmage",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ownerlink": "http://veganmage.se",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"percentage": 250,<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "meal",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"views": "4"<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;"meta": {<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": "98"<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+										}
+									</code>
+								</div>
+							</div>
+
+							<hr>
 							
-							
-							<p><strong>Exempelanrop</strong></p>
-							<p>http://localhost/api/getmeal/<br>
-								<code>{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"data":&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"clicks":&nbsp;"17",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;"85",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"link":&nbsp;"http://veganen.blogspot.se/2013/09/vegansk-omelett.html",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":&nbsp;"Vegansk&nbsp;omelett",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"owner":&nbsp;"Veganen",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ownerlink":&nbsp;"http://veganen.blogspot.se",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"percentage":&nbsp;155,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"meal",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"views":&nbsp;"11"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;},<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"meta":&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total":&nbsp;"98"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-}
-</code></p>
-<p>http://localhost/api/getmeal/32<br>
-	<code>{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"data": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"clicks": "2",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "32",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"link": "http://veganmage.se/2009/06/28/freiluftkino-och-en-pizza-med-bolognese/",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Pizza med bolognese",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"owner": "Veganmage",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ownerlink": "http://veganmage.se",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"percentage": 250,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "meal",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"views": "4"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;},<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"meta": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": "98"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-}
-</code></p>
-							
-							<p>&nbsp;</p>
-							
-							<h4>/api/click/<strong>id</strong></h4>
+							<h2>/api/click/<strong>id</strong></h2>
 							<p>Registrerar ett klick på ett recept.</p>
 							
-							<h5><strong>Indata</strong></h5>
-							<table class="table table-striped">
-								<tr>
-									<td><strong>id</strong></td>
-									<td>ID på maträtten. Heltal <strong>(obligatorisk)</strong></td>
-								</tr>
-							</table>
-														
-							<h5><strong>Utdata</strong></h5>
-							<table class="table table-striped">
-								<tr>
-									<td><strong>error</strong></td>
-									<td>
-										<table class="table table-striped">
-											<tr>
-												<td><strong>code</strong></td>
-												<td>Felkod</td>
-											</tr>
-											<tr>
-												<td><strong>title</strong></td>
-												<td>Felbeskrivning</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
+							<div class="well">
+								<h3>Indata</h3>
+								<table class="table">
+									<tr>
+										<td><strong>id</strong></td>
+										<td>ID på maträtten. Heltal <strong>(obligatorisk)</strong></td>
+									</tr>
+								</table>
+							</div>
+											
+							<div class="well">			
+								<h3>Utdata</h3>
+								<table class="table">
+									<thead>
+										<tr>
+											<td>error</td>
+											<td></td>
+										</tr>
+									</thead>
+									<tr>
+										<td><strong>code</strong></td>
+										<td>Felkod</td>
+									</tr>
+									<tr>
+										<td><strong>title</strong></td>
+										<td>Felbeskrivning</td>
+									</tr>
+								</table>
+							</div>
 							
-							<p><strong>Exempelanrop</strong></p>
-							<p>http://localhost/api/click/3<br>
+							<div class="well">
+							<h3>Exempelanrop</h3>
+							<div class="well">
+								<p><strong>http://localhost/api/click/3</strong></p>
 								<code>{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"error": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code": 200,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "OK"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-}<br>
-
-							</code></p>
+									&nbsp;&nbsp;&nbsp;&nbsp;"error": {<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code": 200,<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "OK"<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+									}<br>
+								</code>
+							</div>
 						</div>
 					</div>
 				</div>
