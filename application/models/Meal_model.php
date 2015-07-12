@@ -120,6 +120,21 @@ class Meal_model extends CI_Model {
 	}
 	
 	
+	/**
+		get_all_meals - Number of approved meals in the database
+	
+			Returns all meals, or all approved/unapproved meals. Accepts null (returns all meals), 1 (returns all accepted meals) or 0 (returns all not yet accepted meals).
+	**/
+	public function get_all_meals($approved) { // Get the total number
+		if ($approved === null) { // Return all meals, regardless of being approved or not.
+			$query = $this->db->query("SELECT * FROM meals ORDER BY meals_id ASC"); // Select all rows
+		} else {	
+			$sql = "SELECT * FROM meals WHERE meals_approved = ? ORDER BY meals_id ASC"; // Get all data of a approved/unapproved meal
+			$query = $this->db->query($sql, array($approved));
+		}
+		
+		return $query->result_array(); // Return all data as array
+	}
 }
 	
 ?>
