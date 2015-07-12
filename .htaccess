@@ -1,6 +1,4 @@
+RewriteBase /
 RewriteEngine on
-
-# TODO: Rewrite all /$id to index.php/main/index/$id
-
-RewriteCond $1 !^(index\.php|assets|robots\.txt)
-RewriteRule ^(.*)$ /index.php/$1 [L]
+RewriteCond $1 !^(index\.php|assets/)
+RewriteRule ^(.*)$ index.php?/$1 [L]
