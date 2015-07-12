@@ -35,6 +35,7 @@ function swapContent(meal,title) {
 	$('#meal_owner').html(meal.owner);
 	$('#meal_ownerlink').attr('href', meal.ownerlink);
 	$('#meal_link').attr('href', meal.link);
+	$('#meal_link').attr('data-id', meal.id);
 	$('#meal_link').attr('data-original-title', meal.clicks + " personer har läst receptet");
 	$('.count').show();
 	generateHearts(meal.percentage);
@@ -105,12 +106,9 @@ window.onpopstate = function(event) { // Enables going backwards in history.
 var counts = 0;
 function getMeal(id) {
     id = id || "";
-	
 	toggleClass();
 	$.getJSON("/api/getmeal/"+id, function (data) {
-		
 		if(data.error) {
-			
 			if (data.error.code == 404) {
 				swapContent({"id":"404",
 				"owner":"servern",
@@ -130,20 +128,14 @@ function getMeal(id) {
 					"name":data.error.code+" "+data.error.title},"Vegotips - "+data.error.code+" "+data.error.title);
 			
 			}
-			
-			toggleClass();
-			return false;
-			
+				toggleClass();
+				return false;	
 		}
 		else {
 			var meal = data.data
-			
 			swapContent(data.data,"Vegotips - #"+meal.id+" "+meal.name);
-			
 	        window.history.pushState({"meal":meal,"pageTitle":document.title},document.title, "/"+meal.id);
-
 			toggleClass();
-			
 			return true;
 		}
 	});
@@ -154,10 +146,8 @@ function getMeal(id) {
 $('.actionTrigger').click(function () {
 	if($(this).attr('id') == "meal_link") {
 		var id = $(this).attr('data-id');
-		$.get("/api/click/"+id, function (data) {
-		});
+		$.get("/api/click/"+id, function (data) { });
 	} else if($(this).attr('id') == "nextMeal") {
-		
 		getMeal();
 		return false;
 	} else {

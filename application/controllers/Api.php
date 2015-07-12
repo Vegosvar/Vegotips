@@ -102,7 +102,7 @@ class Api extends CI_Controller {
 			Accepts numeric meal $id as input, passing meal data to the view. defaults to false if no $id is given
 			Loads /api/json view.
 	**/
-	public function click($id) {
+	public function click($id = null) {
 		$this->load->model('meal_model'); // Load Meal_model
 		
 		if (!is_numeric($id)) { // Not numeric
@@ -114,7 +114,6 @@ class Api extends CI_Controller {
 			$cookie_data = json_decode($_COOKIE['meal_clicks'], true); // Decode the cookie string into an array
 			
 			if (!in_array($id,$cookie_data)) { // Meal id is not in cookie array, proceed to bump clicks
-				
 				$this->meal_model->update_click($id); // Bump clicks
 				
 				$cookie_data[] = $id; // Add $id to cookie array
@@ -123,7 +122,6 @@ class Api extends CI_Controller {
 				$this->_api_log('click', $id, true); // Log successful attempt
 				
 				$this->_api_error(200, "OK"); // Exit with error code 200 OK
-				
 			}
 			else {
 				// User has already viewed this meal.
