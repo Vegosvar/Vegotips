@@ -48,6 +48,18 @@ body {
 	animation: fadein 1s ease-in-out;
 }
 
+h1 {
+	margin-bottom: 15px;
+}
+
+p {
+	margin-bottom: 15px;
+}
+
+table {
+	margin-top: 30px;
+}
+
 a {
 	color: #000;
 	&:hover {
@@ -220,6 +232,10 @@ a {
 	max-width: 100%;
 	padding: 60px 40px 0 40px;
 	margin-bottom: -1px;
+	&.xs {
+		width: 300px;
+		padding: 30px;
+	}
   	@media (max-width: @xs) { 
   		padding: 30px 50px 0px 50px;
   	}
@@ -406,30 +422,33 @@ footer {
 			}
 		}
 	}
-	.btn {
-		border: 1px solid #fff;
-		margin-right: 15px;
-		.transition(all, 0.1s, ease-in);
-		.glyphicon {
-			margin-right: 4px;
+	#links {
+		margin-bottom: 30px;
+		.btn {
+			border: 1px solid #fff;
+			margin-right: 15px;
+			.transition(all, 0.1s, ease-in);
+			.glyphicon {
+				margin-right: 4px;
+			}
+			&:hover, &:active, &:focus {
+				background: #fff;
+				color: @brand-primary;
+				opacity: 1;
+				box-shadow: none;
+	  			@media (max-width: @xs) { 
+	  				color: #fff;
+	  				background: none;
+	  			}
+			}
+	  		@media (max-width: @xs) { 
+	  			font-size: 15px;
+	  			display: block;
+	  			padding: 15px;
+	  			margin-bottom: 15px;
+	  			margin-right: 0;
+	  		}
 		}
-		&:hover, &:active, &:focus {
-			background: #fff;
-			color: @brand-primary;
-			opacity: 1;
-			box-shadow: none;
-  			@media (max-width: @xs) { 
-  				color: #fff;
-  				background: none;
-  			}
-		}
-  		@media (max-width: @xs) { 
-  			font-size: 15px;
-  			display: block;
-  			padding: 15px;
-  			margin-bottom: 15px;
-  			margin-right: 0;
-  		}
 	}
 	a {
 		color: #fff;

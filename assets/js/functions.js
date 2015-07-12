@@ -1,5 +1,5 @@
 
-// Laddar...
+// Loading...
 function toggleClass() {
 	$('#nextMeal').toggleClass('loading');
 	$('#tips').toggleClass('loading');
@@ -13,7 +13,7 @@ function serviceBusy() {
 }
 
 
-// Hjärtan
+// Hearts
 function generateHearts(percent) {
 	if(percent >= 20) {
 		$('.popular').html('<span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span>');
@@ -28,9 +28,10 @@ function generateHearts(percent) {
 	}
 }
 
+
 $(window).load(function() {
 
-	// Formulär
+	// Form
 	$('#tip_form').submit(function(ev) {
 		ev.preventDefault();
 		$.post("/api/submit", $( "#tip_form" ).serialize() )
@@ -43,19 +44,17 @@ $(window).load(function() {
 					$('#thanksForTips').removeClass('show');
 				}, 8000);
 			} else {
-				alert("Något vart fel. Kontrollera att samtliga fält är ifyllda");
+				alert("Något vart fel. Kontrollera att samtliga fält är ifyllda.");
 			}
 		});
 	});
 
-
-	// Tangentbordstryckningar
+	// Keybord
 	$(document).keydown(function(e) {
-		//e.preventDefault(); If you want to do this, you need to find another way. Impossible to enter data into input fields otherwise.
 		var key = e.which;
-		if(key == 82 || key == 78 || key == 13) {
+		if(key == 82 || key == 78) {
 			getMeal();
-		} else if(key == 32) {
+		} else if(key == 13) {
 			$('#supertips .tips').hide();
 			$('#supertips .success').show();
 			setTimeout(function() {
@@ -70,7 +69,6 @@ $(window).load(function() {
 
 
 window.onpopstate = function(event) { // Enables going backwards in history. 
-	
 	
 	if (event.state != null) { // If previous page was NOT index, load the data stored by the user.
 		toggleClass();
@@ -95,7 +93,8 @@ window.onpopstate = function(event) { // Enables going backwards in history.
 	}
 };
 
-// Printa ut data i HTML
+
+// Print HTML
 var counts = 0;
 function getMeal() {
 	toggleClass();
@@ -132,7 +131,6 @@ function getMeal() {
 
 	        document.title = "Vegotips - #"+meal.id+" "+meal.name;
 	        window.history.pushState({"meal":meal,"pageTitle":document.title},document.title, "/"+meal.id);
-			
 
 			toggleClass();
 			
@@ -142,7 +140,7 @@ function getMeal() {
 }
 
 
-// "Se recept" & "Nästa"
+// Actions
 $('.actionTrigger').click(function () {
 	if($(this).attr('id') == "meal_link") {
 		var id = $(this).attr('data-id');

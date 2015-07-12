@@ -90,6 +90,15 @@ body {
   -webkit-animation: fadein 1s ease-in-out;
           animation: fadein 1s ease-in-out;
 }
+h1 {
+  margin-bottom: 15px;
+}
+p {
+  margin-bottom: 15px;
+}
+table {
+  margin-top: 30px;
+}
 a {
   color: #000;
 }
@@ -267,6 +276,10 @@ a:hover {
   max-width: 100%;
   padding: 60px 40px 0 40px;
   margin-bottom: -1px;
+}
+.logo.xs {
+  width: 300px;
+  padding: 30px;
 }
 @media (max-width: 768px) {
   .logo {
@@ -484,33 +497,36 @@ footer #supertips div.success.deactivate {
   padding: 0;
   margin-bottom: 0;
 }
-footer .btn {
+footer #links {
+  margin-bottom: 30px;
+}
+footer #links .btn {
   border: 1px solid #fff;
   margin-right: 15px;
   -webkit-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
 }
-footer .btn .glyphicon {
+footer #links .btn .glyphicon {
   margin-right: 4px;
 }
-footer .btn:hover,
-footer .btn:active,
-footer .btn:focus {
+footer #links .btn:hover,
+footer #links .btn:active,
+footer #links .btn:focus {
   background: #fff;
   color: #1fccba;
   opacity: 1;
   box-shadow: none;
 }
 @media (max-width: 768px) {
-  footer .btn:hover,
-  footer .btn:active,
-  footer .btn:focus {
+  footer #links .btn:hover,
+  footer #links .btn:active,
+  footer #links .btn:focus {
     color: #fff;
     background: none;
   }
 }
 @media (max-width: 768px) {
-  footer .btn {
+  footer #links .btn {
     font-size: 15px;
     display: block;
     padding: 15px;

@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="page-wrapper">
 		<content>
 			<div class="text-center">
-				<img src="/assets/img/vegotips.svg" alt="Vegotips" class="logo">
+				<a href="/"><img src="/assets/img/vegotips.svg" alt="Vegotips" class="logo"></a>
 			</div>
 			<article>
 				<div class="container">
@@ -108,10 +108,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</content>
 		<footer class="text-center">
 			<div class="container">
+
 				<div id="supertips">
 					<div class="tips">
 						<span class="glyphicon glyphicon-sunglasses"></span>
-						<strong>Supertips</strong> Tryck Mellanslag för att hämta nästa tips
+						<strong>Supertips</strong> Tryck Enter för att hämta nästa tips
 					</div>
 					<div class="success">
 						<span class="glyphicon glyphicon-flash"></span>
@@ -119,15 +120,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 				
-				<div>
+				<div id="links">
 					<a href="#tips" class="btn btn-secondary trigger">
 						<span class="glyphicon glyphicon-comment"></span> Posta ett eget tips
 					</a> 
 					<a href="http://facebook.com/vegotips" class="btn btn-secondary">
-						<span class="glyphicon glyphicon-thumbs-up"></span> Fler tips på vår Facebook
-					</a> 
-					Utvecklat av <a href="https://vegosvar.se" target="_blank">Vegosvar</a>
+						<span class="glyphicon glyphicon-thumbs-up"></span> Fler tips på Facebook
+					</a>
 				</div>
+
+				<a href="/api">API</a> | Utvecklat av <a href="https://vegosvar.se" target="_blank">Vegosvar</a>
+
 			</div>
 		</footer>
 	</div>
