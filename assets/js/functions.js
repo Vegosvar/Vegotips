@@ -33,9 +33,9 @@ $(window).load(function() {
 	// Formulär
 	$('#tip_form').submit(function(ev) {
 		ev.preventDefault();
-		$.post("/index.php/submit/tip", $( "#tip_form" ).serialize() )
+		$.post("/api/submit", $( "#tip_form" ).serialize() )
 		.done(function(data) {
-			if(data == 1) {
+			if(data.data.code == 200) {
 				$('#thanksForTips').addClass('show');
 				$('#tip_form').trigger("reset");
 				setTimeout(function() {

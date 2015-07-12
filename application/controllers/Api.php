@@ -111,4 +111,31 @@ class Api extends CI_Controller {
 			$this->_api_error(200, "OK"); // Exit with error code 200 OK
 		}
 	}
+	
+	
+	/**
+		submit - /api/submit controller
+			
+			Takes a series of inputs
+			Loads /api/json view.
+			
+			// TODO: More input sanitation. Too much trust is put in the data. Does category exist? Is it numeric? 
+	**/
+	public function submit() { 
+		$this->load->model('meal_model'); // Load Meal_model
+		
+		if($_POST['name'] == "" || $_POST['link'] == "" || $_POST['category'] == "" || !(isset($_POST['category']))) {
+			$this->_api_error(406, "Not Acceptable"); // Exit with error code
+		} else {
+			
+			if($this->meal_model->insert_meal($_POST['name'], $_POST['link'], $_POST['category'])) {
+				$this->_api_error(200, "OK"); // Exit with error code
+			} else {
+				$this->_api_error(); // Exit with error code
+			}
+			
+		}
+	}
+	
+	
 }

@@ -93,6 +93,23 @@ class Meal_model extends CI_Model {
 	
 	
 	/**
+		insert_meal - Insert a new submission into meals table
+	
+			Requires name, link and category
+	**/
+	public function insert_meal($name, $link, $category) {
+		$data = array('meals_name' => $name,
+				  'meals_link' => $link,
+				  'meals_category' => $category);
+		$this->db->insert('meals', $data);
+		
+		// TODO: Error catching
+		
+		return true;
+	}
+	
+	
+	/**
 		get_total_meals - Number of approved meals in the database
 	
 			Returns an integer with the total number of approved meals in the database
