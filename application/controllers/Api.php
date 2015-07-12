@@ -49,7 +49,7 @@ class Api extends CI_Controller {
 				if($meal['meals_views'] == 0) { // Stop division by 0 later on, 'meals_up' is number of clicks and 'meals_views' is number of views.
 					$percentage = 0; 
 				} else {
-					$percentage = round( ($meal['meals_up'] / $meal['meals_views']) * 100 ); // Divide number of clicks with number of views and clicks. TODO: Discuss whether this is the best approach. 
+					$percentage = round( ($meal['meals_up'] / $meal['meals_views']) * 100 ); 
 				}
 						
 				$data = array( // Initialize $data array
