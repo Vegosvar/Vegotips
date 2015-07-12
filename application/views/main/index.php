@@ -71,7 +71,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<span class="name"><a href="<? echo $meal['meals_link']; ?>"  id="meal_name"><? echo $meal['meals_name']; ?></a></span>
 									<div class="popular">
 										<?
-											
 										if($meal['percentage'] >= 20) {
 											echo '<span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span>';
 										} else if($meal['percentage'] >= 15) {
@@ -83,7 +82,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										} else {
 											echo '<span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart-empty"></span><span class="glyphicon glyphicon-heart-empty"></span><span class="glyphicon glyphicon-heart-empty"></span><span class="glyphicon glyphicon-heart-empty"></span>';
 										}
-											
 										?>
 									</div>
 								</div>
@@ -128,7 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a href="http://facebook.com/vegotips" class="btn btn-secondary">
 						<span class="glyphicon glyphicon-thumbs-up"></span> Fler tips på Facebook
 					</a>
-					<a href="/all" class="btn btn-secondary">
+					<a href="/lista" class="btn btn-secondary">
 						<span class="glyphicon glyphicon-cutlery"></span> Komplett lista
 					</a>
 				</div>

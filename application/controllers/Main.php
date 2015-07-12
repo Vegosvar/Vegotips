@@ -22,8 +22,7 @@ class Main extends CI_Controller {
 				'meals_percentage' => 0,
 				'meals_link' => "/",
 				'meals_owner' => "servern",
-				'meals_ownerlink' => "/");
-						
+				'meals_ownerlink' => "/");	
 		}
 		
 		// Calculate the percentage
