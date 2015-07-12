@@ -399,7 +399,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a href="http://facebook.com/vegotips" class="btn btn-secondary">
 						<span class="glyphicon glyphicon-thumbs-up"></span> Fler tips på Facebook
 					</a>
-					<a href="all" class="btn btn-secondary">
+					<a href="/lista" class="btn btn-secondary">
 						<span class="glyphicon glyphicon-cutlery"></span> Komplett lista
 					</a>
 				</div>

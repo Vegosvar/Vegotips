@@ -57,8 +57,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">							
 							<h1>Komplett lista på vegansk mat</h1>
 							<p class="preamble">Hämtat från några av Sveriges alla matbloggar</p>
-							<p>Vi kan även <strong><a href="/">slumpa fram</a></strong> en maträtt om du önskar det, perfekt när du inte kan bestämma dig.<br>
-							<strong><a href="#tips" class="trigger">Posta ett eget tips</a></strong> om du vill bidra med egna maträtter.</p><br>
+							<p>Vi kan även <strong><a href="/">slumpa fram</a></strong> en maträtt om du önskar det, perfekt när du inte kan bestämma dig.
+							Om du vill bidra med egna maträtter får du gärna <strong><a href="#tips" class="trigger">posta ett eget tips</a></strong>.</p><br>
 							
 							<h3>Veganska maträtter</h3>
 							<table class="table table-striped">
