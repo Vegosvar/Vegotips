@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="canonical" href="http://vegotips.se"/>
 	<meta property='og:locale' content='sv_SE'/>
 	<meta property='og:type' content='website'/>
-	<meta property='og:title' content='Vegotips – Vad ska jag laga för vegokäk?'/>
+	<meta property='og:title' content='Vegotips – API'/>
 	<meta property='og:url' content='http://vegotips.se/'/>
 	<meta property='og:site_name' content='Vegotips'/>
 	<meta property='og:image' content='http://vegotips.se/assets/img/og.png'/>
@@ -244,6 +244,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</a> 
 					<a href="http://facebook.com/vegotips" class="btn btn-secondary">
 						<span class="glyphicon glyphicon-thumbs-up"></span> Fler tips på Facebook
+					</a>
+					<a href="all" class="btn btn-secondary">
+						<span class="glyphicon glyphicon-cutlery"></span> Komplett lista
 					</a>
 				</div>
 
