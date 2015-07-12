@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div id="tips">
 									<div class="count">
 										<h1>Vegotips</h1>
-										<strong id="meal_count">#<? echo $meal['meals_id']; ?></strong> 
+										<strong id="meal_count"><a href="/<? echo $meal['meals_id']; ?>">#<? echo $meal['meals_id']; ?></a></strong> 
 										från 
 										<a id="meal_ownerlink" href="<? echo $meal['meals_ownerlink']; ?>" target="_blank">
 											<strong id="meal_owner"><? echo $meal['meals_owner']; ?></strong>
