@@ -10,7 +10,7 @@ class All extends CI_Controller {
 	**/
 	public function index() { // Index controller.
 		$this->load->model('meal_model'); // Load Meal_model
-		$meals = $this->meal_model->get_all_meals(null); // Get all meals
+		$meals = $this->meal_model->get_all_meals(1); // Get all meals
 
 		$data = array('meals' => $meals);
 		
