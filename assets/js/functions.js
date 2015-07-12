@@ -30,6 +30,7 @@ function generateHearts(percent) {
 
 function swapContent(meal,title) {
 	$('#meal_count').html("#"+meal.id);
+	$('.actionTrigger').attr('data-id', 0);
 	$('#meal_name').html(meal.name);
 	$('#meal_owner').html(meal.owner);
 	$('#meal_ownerlink').attr('href', meal.ownerlink);
