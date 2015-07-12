@@ -35,7 +35,8 @@ $(window).load(function() {
 		ev.preventDefault();
 		$.post("/api/submit", $( "#tip_form" ).serialize() )
 		.done(function(data) {
-			if(data.data.code == 200) {
+			data = jQuery.parseJSON(data);
+			if(data.error.code == 200) {
 				$('#thanksForTips').addClass('show');
 				$('#tip_form').trigger("reset");
 				setTimeout(function() {
