@@ -73,7 +73,7 @@ hr {
 }
 
 a {
-	color: #000;
+	color: #222;
 	&:hover {
 		color: @brand-primary;
 		text-decoration: none;
@@ -309,8 +309,11 @@ article {
 			color: #222;
 			margin-bottom: 15px;
 			.transition(font-size, 0.1s, ease-in);
-			&:hover, &:focus {
-				text-decoration: none;
+			a {
+				&:hover, &:focus, &:active {
+					color: #222;
+					text-decoration: none;
+				}
 			}
 	  		@media (max-width: @xs) { 
 				font-size: 27px;

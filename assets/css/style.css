@@ -111,7 +111,7 @@ hr {
   margin-bottom: 30px;
 }
 a {
-  color: #000;
+  color: #222;
 }
 a:hover {
   color: #1fccba;
@@ -362,8 +362,10 @@ article #tips .name {
   -webkit-transition: font-size 0.1s ease-in;
   transition: font-size 0.1s ease-in;
 }
-article #tips .name:hover,
-article #tips .name:focus {
+article #tips .name a:hover,
+article #tips .name a:focus,
+article #tips .name a:active {
+  color: #222;
   text-decoration: none;
 }
 @media (max-width: 768px) {
