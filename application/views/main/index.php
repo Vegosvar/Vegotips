@@ -45,7 +45,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</script>
 
 </head>
-	Test
 <body>
 	<div class="page-wrapper">
 		<content>
