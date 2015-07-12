@@ -114,6 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="content">
 				<div id="thanksForTips">Tack för ditt tips!</div>
+				<div id="thanksForErrors">Korvatastrov! Något gick fel, kanske tänkte du på mat?</div>
 				<form action="post" id="tip_form">
 				<div class="input-group">
   					<span class="input-group-addon" id="sizing-addon1">Vegokäk</span>
