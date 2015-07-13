@@ -148,12 +148,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div id="thanksForErrors">Korvatastrov! Något gick fel, kanske tänkte du på mat?</div>
 				<form action="post" id="tip_form">
 				<div class="input-group">
-  					<span class="input-group-addon" id="sizing-addon1">Vegokäk</span>
+						<span class="input-group-addon" id="sizing-addon1">Vegokäk</span>
 					<input type="field" id="tips" name="name" class="form-control">
 				</div>
 				
 				<div class="input-group">
-  					<span class="input-group-addon" id="sizing-addon1">Recept</span>
+						<span class="input-group-addon" id="sizing-addon1">Recept</span>
 					<input type="field" id="link" name="link" class="form-control" placeholder="http://">
 				</div>
 

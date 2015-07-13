@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['api/click/(:num)'] = 'api/click/$1';
+$route['lek/(:num)'] = 'lek/index/$1';
 $route['default_controller'] = 'main';
 $route['(:num)'] = 'main/index/$1';
 $route['main/(:num)'] = 'main/index/$1';

@@ -45,7 +45,6 @@ function swapContent(meal,title) {
 }
 
 $(window).load(function() {
-
 	// Form
 	$('#tip_form').submit(function(ev) {
 		ev.preventDefault();
@@ -86,13 +85,11 @@ $(window).load(function() {
 });
 
 
-window.onpopstate = function(event) { // Enables going backwards in history. 
-	
+window.onpopstate = function(event) { // Enables going backwards in history.
 	if (event.state != null) { // If previous page was NOT index, load the data stored by the user.
 		toggleClass();
 		setTimeout(function() {
 			swapContent(event.state.meal,event.state.pageTitle);
-			
 			toggleClass();	
 		}, 100);
 	} else { // Last page was index, proceed with random meal.
