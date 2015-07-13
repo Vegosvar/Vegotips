@@ -39,5 +39,4 @@ class Main extends CI_Controller {
 		
 		$this->load->view('main/index', $data); // Pass $data to the view main/index
 	}
-
 }
