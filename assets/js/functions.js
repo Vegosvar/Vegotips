@@ -158,5 +158,4 @@ $('#meal_link, #meal_name').click(function () {
 $('#nextMeal').click(function () {
 	getMeal();
 	return false;
-	
 });
