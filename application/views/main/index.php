@@ -152,7 +152,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</a>
 				</div>
 
-				<a href="/api">API</a> | Utvecklat av <a href="https://vegosvar.se" target="_blank">Vegosvar</a>
+				<a href="/api">Vegotips API</a> | Utvecklat av <a href="https://vegosvar.se" target="_blank">Vegosvar</a>
 
 			</div>
 		</footer>
