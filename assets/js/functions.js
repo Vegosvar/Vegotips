@@ -70,7 +70,7 @@ $(window).load(function() {
 	$(document).keydown(function(e) {
 		var key = e.which;
 		if($('.modal').css('opacity') == 0) {	// Prevents the user from loading a new meal while modal is visible, this prevents the style bug that occured.
-			if(key == 78) {
+			if(key == 13) {
 				$('#supertips .tips').hide();
 				$('#supertips .success').show();
 				setTimeout(function() {
