@@ -132,7 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div id="supertips">
 					<div class="tips">
 						<span class="glyphicon glyphicon-sunglasses"></span>
-						<strong>Supertips</strong> Tryck Enter för att hämta nästa tips
+						<strong>Supertips</strong> Tryck på N för att hämta nästa tips
 					</div>
 					<div class="success">
 						<span class="glyphicon glyphicon-flash"></span>
@@ -166,7 +166,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="content">
 				<div id="thanksForTips">Tack för ditt tips!</div>
-				<div id="thanksForErrors">Korvatastrov! Något gick fel, kanske tänkte du på mat?</div>
+				<div id="thanksForErrors">Korvkatastrof! Något gick fel, kanske tänkte du på mat?</div>
 				<form action="post" id="tip_form">
 				<div class="input-group">
 						<span class="input-group-addon" id="sizing-addon1">Vegokäk</span>
