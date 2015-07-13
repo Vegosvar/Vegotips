@@ -77,6 +77,7 @@ $(window).load(function() {
 					$('#supertips .success').addClass('deactivate');
 				}, 2500);
 				getMeal();
+				return false;
 			} else if(key == 76 || key == 83) {
 				$('#meal_link').trigger('click');
 			}
