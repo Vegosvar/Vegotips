@@ -78,9 +78,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<h1>Vegotips API</h1>
 							<p class="preamble">De APIer som används för att hämta och publicera information till och från Vegotips finns tillgängliga för allmänheten och finns dokumenterade på denna webbplats. Ingen API-nyckel krävs, men samtliga anrop loggas.</p>
 							<p>Användande av Vegosvars API innebär samförstånd i att APIt inte får användas i brottsligt eller annat skadligt syfte. Vegosvar eller Vegotips tillhandahåller ingen support för APIt eller tar något ansvar för eventuella problem som uppstår på grund av fel i mjukvaran.</p>
+
 							<blockquote>"With great food, comes great responsibility" - Vegotips</blockquote><br>
 
-							
 							<h2>Dokumentation</h2>
 							<p>Samtliga anrop returnerar data i JSON. Nedan beskrivs varje metod, tillsammans med exempel på den data som kan returneras.<br></p>
 							
@@ -306,34 +306,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							
 							<div class="well">
-							<h3>Exempelanrop</h3>
-							<div class="well">
-								<p><strong>GET http://vegotips.se/api/getcategories</strong></p>
-								<code>{<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;"data": [<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "1",<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Lagat",<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "category"<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "2",<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Bakat",<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "category"<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "3",<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Grillat",<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "category"<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;],<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;"meta": {<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": "3"<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-									}<br>
-								</code>
-							</div>
-							
+								<h3>Exempelanrop</h3>
+								<div class="well">
+									<p><strong>GET http://vegotips.se/api/getcategories</strong></p>
+									<code>{<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;"data": [<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "1",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Lagat",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "category"<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "2",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Bakat",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "category"<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "3",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Grillat",<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "category"<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;"meta": {<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": "3"<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+										}<br>
+									</code>
+								</div>
 							</div>
 
 							<hr>
@@ -380,29 +379,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							
 							<div class="well">
-							<h3>Exempelanrop</h3>
-							<div class="well">
-								<p><strong>POST http://vegotips.se/api/submit</strong> name: <em>"namn"</em>, link: <em>"http://vegosvar.se"</em>, category: <em>1</em></p>
-								<code>{<br>
-										&nbsp;&nbsp;&nbsp;&nbsp;"error": {<br>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code": 200,<br>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "OK"<br>
-										&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-										}<br>
-								</code>
-							</div>
-							
-							<div class="well">
-								<p><strong>POST http://vegotips.se/api/submit</strong> name: <em>""</em>, link: <em>"http://vegosvar.se"</em>, category: <em>"Mat"</em></p>
-								<code>{<br>
-										&nbsp;&nbsp;&nbsp;&nbsp;"error": {<br>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code": 406,<br>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "Not Acceptable"<br>
-										&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-										}<br>
-								</code>
-							</div>
-						
+								<h3>Exempelanrop</h3>
+								<div class="well">
+									<p><strong>POST http://vegotips.se/api/submit</strong> name: <em>"namn"</em>, link: <em>"http://vegosvar.se"</em>, category: <em>1</em></p>
+									<code>{<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;"error": {<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code": 200,<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "OK"<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+											}<br>
+									</code>
+								</div>
+								
+								<div class="well">
+									<p><strong>POST http://vegotips.se/api/submit</strong> name: <em>""</em>, link: <em>"http://vegosvar.se"</em>, category: <em>"Mat"</em></p>
+									<code>{<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;"error": {<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code": 406,<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "Not Acceptable"<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+											}<br>
+									</code>
+								</div>
 							</div>
 							
 						</div>
@@ -417,7 +415,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a href="#tips" class="btn btn-secondary trigger">
 						<span class="glyphicon glyphicon-comment"></span> Posta ett eget tips
 					</a> 
-					<a href="http://facebook.com/vegotips" class="btn btn-secondary">
+					<a href="http://facebook.com/vegotips" class="btn btn-secondary" target="_blank">
 						<span class="glyphicon glyphicon-thumbs-up"></span> Fler tips på Facebook
 					</a>
 					<a href="/lista" class="btn btn-secondary">

@@ -144,7 +144,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a href="#tips" class="btn btn-secondary trigger">
 						<span class="glyphicon glyphicon-comment"></span> Posta ett eget tips
 					</a> 
-					<a href="http://facebook.com/vegotips" class="btn btn-secondary">
+					<a href="http://facebook.com/vegotips" class="btn btn-secondary" target="_blank">
 						<span class="glyphicon glyphicon-thumbs-up"></span> Fler tips på Facebook
 					</a>
 					<a href="/lista" class="btn btn-secondary">
