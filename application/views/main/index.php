@@ -132,7 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div id="supertips">
 					<div class="tips">
 						<span class="glyphicon glyphicon-sunglasses"></span>
-						<strong>Supertips</strong> Tryck på N för att hämta nästa tips
+						<strong>Supertips</strong> Tryck Enter för att hämta nästa tips
 					</div>
 					<div class="success">
 						<span class="glyphicon glyphicon-flash"></span>
