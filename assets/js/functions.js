@@ -32,6 +32,7 @@ function swapContent(meal,title) {
 	$('#meal_count').html("#"+meal.id);
 	$('#meal_link').attr('data-id', meal.id);
 	$('#meal_name').html(meal.name);
+	$('#meal_name').attr('href', meal.link);
 	$('#meal_owner').html(meal.owner);
 	$('#meal_ownerlink').attr('href', meal.ownerlink);
 	$('#meal_link').attr('href', meal.link);
